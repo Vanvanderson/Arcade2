@@ -1,3 +1,4 @@
+//define global variables
 let playerName = '';
 let pickAnother;
 let matchesPlayed = 0;
@@ -79,6 +80,7 @@ bearNinjaHunter = () =>{
             break;
             }
         }
+    //show match result
     alert(`The computer chose ${computerChoice}!` + ' ' + `You ${matchOutcomes[matchCondition]}!!`)
     keepPlaying = prompt('Would you like to play again (y/n)?')
     if(keepPlaying == 'n'){
@@ -97,10 +99,12 @@ function guessing(){
     alert('Round: ' + roundNumber);
     while(keepPlaying == true){
         matchesPlayed++;
+        //create random number
         let randomNumber = Math.floor(Math.random() * 10) + 1;
         let correct = false;
         let guesses = 0;
         let guess = prompt('Round ' + roundNumber + ': ' + 'Guess a number between 1 and 10');
+        //tell player if guess was too high or low
         while(correct == false){
             if(guess == randomNumber){
                 correct = true
@@ -113,6 +117,7 @@ function guessing(){
             }
             guesses ++;        
         }
+        //ask to play again
         let playAgain = prompt(guesses > 1 ? 'You guessed it in ' + guesses + ' guesses! Play again (y/n)?' : 'You guessed it in ' + guesses + ' guess, Amazing! Play again (y/n)?');
         if(playAgain.toLowerCase() == 'n'){
             alert(roundNumber > 1 ? `You played ${roundNumber} rounds. Thanks for playing!` : `You played ${roundNumber} round. Thanks for playing!`)
@@ -129,6 +134,7 @@ const magicBall = function(){
     matchesPlayed++
     let asking = true;
     let answers = ["It is certain", "Most likely", "Yes", "Reply hazy, try again", "Ask again later", "My reply is no", "My sources say no", "Very doubtful"];
+    //ask player for question
     while(asking == true){
         prompt('I give wisdom in the form of yes or no. Ask any questions may you posses.');
         let rand = Math.floor(Math.random() * 8);
@@ -143,6 +149,7 @@ const magicBall = function(){
     checkReloadPage()
 }
 function checkReloadPage(){
+    //ask player if they want to play another game
     pickAnother = prompt('Would you like to pick another game to play? y/n')
     if(pickAnother != 'y' && pickAnother != 'n'){
         while(pickAnother != 'y' && pickAnother != 'n'){
